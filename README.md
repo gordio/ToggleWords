@@ -12,11 +12,22 @@ false <-> true
     < <-> >
 ```
 
+and this automatic understand
+
+```
+False <-> True
+FALSE <-> TRUE
+# ... etc
+```
+
+
 # Usage
 Set cursor on word or select word and press Super+Alt+x
 
+
 # Installation
 _TODO_
+
 
 # Configure
 
@@ -25,6 +36,7 @@ Put this in you sublime-keymap ```"keys": ["alt+t"], "command": "toggle_bool" }`
 
 ### Words
 _TODO_
+
 
 # TODO
 - Work for multi selection
