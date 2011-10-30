@@ -1,3 +1,0 @@
-[
-	{ "caption": "Toggle", "command": "toggle", "args": {"files": []} }
-]
