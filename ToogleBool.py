@@ -2,12 +2,13 @@ import sublime, sublime_plugin
 
 bool_dict = [
 	('true', 'false'),
-	('on',   'off'),
-	('yes',  'no'),
-	('0',    '1'),
-	('+',    '-'),
-	('&&',   '||'),
-	('<',    '>'),
+	('on', 'off'),
+	('yes', 'no'),
+	('0', '1'),
+	('+', '-'),
+	('&', '|')
+	('&&', '||'),
+	('<', '>'),
 ]
 
 class ToggleVarCommand(sublime_plugin.TextCommand):
