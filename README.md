@@ -1,5 +1,6 @@
 # About
 Sublime Text 2 Plugin - toggle boolean words
+
 ```
 false <-> true
   yes <-> no
@@ -18,4 +19,13 @@ Set cursor on word or select word and press Super+Alt+x
 _TODO_
 
 # Configure
+
+### Keys
+Put this in you sublime-keymap ```"keys": ["alt+t"], "command": "toggle_bool" }```
+
+### Words
 _TODO_
+
+# TODO
+- Work for multi selection
+- Work without case-sensitive.
