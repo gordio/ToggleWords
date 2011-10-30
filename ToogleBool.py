@@ -11,7 +11,7 @@ bool_dict = [
 	('<', '>'),
 ]
 
-class ToggleVarCommand(sublime_plugin.TextCommand):
+class ToggleBoolCommand(sublime_plugin.TextCommand):
 	def run(self, view):
 		word_region = self.view.word(self.view.sel()[0])
 		word = self.view.substr(word_region)
