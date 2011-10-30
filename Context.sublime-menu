@@ -1,0 +1,4 @@
+[
+	/*{ "caption": "-" },*/
+	{ "caption": "Toggle Variable", "command": "toggle_var" }
+]

@@ -1,0 +1,5 @@
+[
+	{ "keys": ["alt+super+x"], "command": "toggle_var" },
+	{ "keys": ["alt+cmd+x"], "command": "toggle_var" }
+
+]
