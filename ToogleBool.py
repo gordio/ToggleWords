@@ -19,6 +19,23 @@ class ToggleBoolCommand(sublime_plugin.TextCommand):
 		for bool_word in bool_dict:
 			if word == bool_word[0]:
 				self.view.replace(view, word_region, bool_word[1])
+				continue
 			if word == bool_word[1]:
 				self.view.replace(view, word_region, bool_word[0])
+				continue
 
+			# For first letter apper
+			if word == bool_word[0].capitalize():
+				self.view.replace(view, word_region, bool_word[1].capitalize())
+				continue
+			if word == bool_word[1].capitalize():
+				self.view.replace(view, word_region, bool_word[0].capitalize())
+				continue
+
+			# For all letter's apper
+			if word == bool_word[0].upper():
+				self.view.replace(view, word_region, bool_word[1].upper())
+				continue
+			if word == bool_word[1].upper():
+				self.view.replace(view, word_region, bool_word[0].upper())
+				continue
