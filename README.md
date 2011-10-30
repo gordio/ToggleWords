@@ -42,4 +42,5 @@ _TODO_
 
 # TODO
 - Work for multi selection
-- Work without case-sensitive.
+- Add user words
+- Understand and +/- int values (lowest)
