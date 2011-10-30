@@ -2,7 +2,7 @@
 Sublime Text 2 Plugin - toggle boolean words
 
 ```
-false <-> true
+ true <-> false
   yes <-> no
    on <-> off
     0 <-> 1
@@ -26,13 +26,15 @@ Set cursor on word or select word and press Super+Alt+x
 
 
 # Installation
-_TODO_
+1. Open you Sublime Text 2 Packages directory
+2. Run `git clone git://github.com/gordio/ToggleBool`
+3. Have fun!
 
 
 # Configure
 
 ### Keys
-Put this in you sublime-keymap ```"keys": ["alt+t"], "command": "toggle_bool" }```
+Put this in you sublime-keymap `"keys": ["alt+t"], "command": "toggle_bool" }`
 
 ### Words
 _TODO_

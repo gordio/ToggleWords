@@ -2,8 +2,8 @@ import sublime, sublime_plugin
 
 bool_dict = [
 	('true', 'false'),
-	('on', 'off'),
 	('yes', 'no'),
+	('on', 'off'),
 	('0', '1'),
 	('+', '-'),
 	('&', '|'),
