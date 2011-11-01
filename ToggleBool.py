@@ -34,6 +34,7 @@ class ToggleBoolCommand(sublime_plugin.TextCommand):
 			if word == bool_word[1].upper():
 				self.view.replace(view, region, bool_word[0].upper())
 				continue
+		sublime.status_message("ToggleBool: Can't find toggles for '%s'" % word)
 		
 	def run(self, view):
 		for region in self.view.sel():
