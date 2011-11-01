@@ -12,9 +12,8 @@ bool_dict = [
 ]
 
 class ToggleBoolCommand(sublime_plugin.TextCommand):
-	def run(self, view):
-		word_region = self.view.word(self.view.sel()[0])
-		word = self.view.substr(word_region)
+	def ToggleBool(self, region):
+		word = self.view.substr(region)
 
 		for bool_word in bool_dict:
 			if word == bool_word[0]:
@@ -39,3 +38,10 @@ class ToggleBoolCommand(sublime_plugin.TextCommand):
 			if word == bool_word[1].upper():
 				self.view.replace(view, word_region, bool_word[0].upper())
 				continue
+		
+
+	def run(self, view):
+		for region in self.view.sel():
+			word_region = self.view.word(region)
+			self.ToggleBool(word_region)
+

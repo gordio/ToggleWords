@@ -39,5 +39,5 @@ _TODO_
 
 
 # TODO
-- Work for multi selection
-- Work without case-sensitive.
+- Work for multi words selection
+- Зациклить перебор в словаре, что бы работало для ('true', 'false', 'nil') переключая true => false => nil => true...
