@@ -14,26 +14,28 @@ class ToggleBoolCommand(sublime_plugin.TextCommand):
 		for bool_word in bool_dict:
 			if word == bool_word[0]:
 				self.view.replace(view, region, bool_word[1])
-				continue
+				return
 			if word == bool_word[1]:
 				self.view.replace(view, region, bool_word[0])
-				continue
+				return
 
-			# For first letter apper
+			# For case when first letter is uppercase
 			if word == bool_word[0].capitalize():
 				self.view.replace(view, region, bool_word[1].capitalize())
-				continue
+				return
 			if word == bool_word[1].capitalize():
 				self.view.replace(view, region, bool_word[0].capitalize())
-				continue
+				return
 
-			# For all letter's apper
+			# For case when all letters are uppercase
 			if word == bool_word[0].upper():
 				self.view.replace(view, region, bool_word[1].upper())
-				continue
+				return
 			if word == bool_word[1].upper():
 				self.view.replace(view, region, bool_word[0].upper())
-				continue
+				return
+				
+		# Word not found? Show message
 		sublime.status_message("ToggleBool: Can't find toggles for '%s'" % word)
 		
 	def run(self, view):
