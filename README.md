@@ -6,6 +6,10 @@ Sublime Text 2 Plugin - toggle boolean words
   yes <-> no
    on <-> off
     0 <-> 1
+ left <-> right
+  top <-> bottom
+   up <-> down
+width <-> height
 ```
 
 and this automatic understand

@@ -4,7 +4,11 @@ bool_dict = [
 	('true', 'false'),
 	('yes', 'no'),
 	('on', 'off'),
-	('0', '1')
+	('0', '1'),
+	('left', 'right'),
+	('top', 'bottom'),
+	('up', 'down'),
+	('width', 'height'),
 ]
 
 class ToggleBoolCommand(sublime_plugin.TextCommand):
