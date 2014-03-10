@@ -21,6 +21,24 @@ FALSE <-> TRUE
 …
 ```
 
+Words surrounded with double curly braces `{{  }}` are replaced exactly as they are defined in the dictionary.
+
+Definition in dictionary:
+
+```
+{{PhantomJS}} <-> {{Chrome}}
+```
+
+Usage:
+
+```javascript
+module.exports = function (karma) {
+    karma.set({
+		browsers: ['PhantomJS'], /* <-> Chrome */
+    });
+}
+```
+
 
 Usage
 -----
@@ -35,7 +53,7 @@ Installation
 
 or
 
-1. Open you Sublime Text 2 Packages directory
+1. Open you Sublime Text 3 Packages directory
 2. Run `git clone git://github.com/gordio/ToggleBool`
 3. Have fun!
 
@@ -57,7 +75,10 @@ Example file `ToggleWord.sublime-settings`
 		"left":	"right",
 		"top":	"bottom",
 		"up":	"down",
-		"width": "height"
+		"width": "height",
+		"{{PhantomJS}}": "{{Chrome}}"
 	}
 }
 ```
+
+If installed using `Package Control` dictionary file should be located in in `<data_path>/Packages`. To get there select `Prefences -> Browse Packages...` in Sublime menu.
