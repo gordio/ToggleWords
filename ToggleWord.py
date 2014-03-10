@@ -19,6 +19,21 @@ class ToggleBoolCommand(sublime_plugin.TextCommand):
 		editor_word = self.view.substr(region)
 
 		for word_item in words_dict:
+			# PhantomJS <> Chrome
+			# For case when letter cases are mixed
+			# Words defined in the dictionary surrounded with "{{ }}" are
+			# replaced as they are, without modifying their case
+			if word_item[0].startswith('{{') and word_item[0].endswith('}}'):
+				stripped_word = word_item[0].strip('{}');
+				if editor_word == stripped_word:
+					self.view.replace(view, region, word_item[1].strip('{}'))
+					return
+			if word_item[1].startswith('{{') and word_item[1].endswith('}}'):
+				stripped_word = word_item[1].strip('{}');
+				if editor_word == stripped_word:
+					self.view.replace(view, region, word_item[0].strip('{}'))
+					return
+
 			# true <> false
 			# For case when all letters are lowercase
 			if editor_word == word_item[0].lower():
@@ -45,7 +60,7 @@ class ToggleBoolCommand(sublime_plugin.TextCommand):
 			if editor_word == word_item[1].upper():
 				self.view.replace(view, region, word_item[0].upper())
 				return
-				
+
 		# Word not found? Show message
 		sublime.status_message(
 			"{0}: Can't find toggles for '{1}'".format(
