@@ -1,10 +1,10 @@
 {
     // User defined words
+    // Automatic understand lEFt(original)|left|Left|LEFT
     "toggle_word_dict": {
         "left": "right",
         "top": "bottom",
         "up": "down",
-        "width": "height",
-        "{{PhantomJS}}": "{{Chrome}}"
+        "width": "height"
     }
 }

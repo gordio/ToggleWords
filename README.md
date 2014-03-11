@@ -13,30 +13,12 @@ Plugin for Sublime Text 3 - toggle "boolean" words with supporting user defined 
 width <-> height
 ```
 
-and this automatically understand
+and this automatically understand original words and ->
 
 ```
+false <-> true
 False <-> True
 FALSE <-> TRUE
-…
-```
-
-Words surrounded with double curly braces `{{  }}` are replaced exactly as they are defined in the dictionary.
-
-Definition in dictionary:
-
-```
-{{PhantomJS}} <-> {{Chrome}}
-```
-
-Usage:
-
-```javascript
-module.exports = function (karma) {
-    karma.set({
-		browsers: ['PhantomJS'], /* <-> Chrome */
-    });
-}
 ```
 
 
@@ -75,10 +57,9 @@ Example file `ToggleWord.sublime-settings`
 		"left":	"right",
 		"top":	"bottom",
 		"up":	"down",
-		"width": "height",
-		"{{PhantomJS}}": "{{Chrome}}"
+		"width": "height"
 	}
 }
 ```
 
-If installed using `Package Control` dictionary file should be located in in `<data_path>/Packages`. To get there select `Prefences -> Browse Packages...` in Sublime menu.
+If installed using `Package Control` dictionary file should be located in `<data_path>/Packages`. To get there select `Prefences -> Browse Packages...` in Sublime menu.
