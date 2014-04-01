@@ -11,14 +11,6 @@ DEFAULT_WORDS = [
 	["0", "1"]
 ]
 
-# Only run config when loading the editor, not on each time the main function is called...
-user_dict = sublime.Settings.get(sublime.load_settings(SETTINGS_FILE), 'toggle_word_dict', {})
-
-words_dict = DEFAULT_WORDS
-
-for item in user_dict:
-	words_dict.append(item)
-
 class ToggleWordCommand(sublime_plugin.TextCommand):
 
 	def toggle_word(self, view, region, words_dict=DEFAULT_WORDS):
@@ -56,6 +48,16 @@ class ToggleWordCommand(sublime_plugin.TextCommand):
 		)
 
 	def run(self, view):
+
+		# Would be nice to only run config when loading the editor,
+		# not on each time the main function is called, but...
+		# can't figure out how to do that without breaking the loading of plugin
+		user_dict = sublime.Settings.get(sublime.load_settings(SETTINGS_FILE), 'toggle_word_dict', {})
+
+		words_dict = DEFAULT_WORDS
+
+		for item in user_dict:
+			words_dict.append(item)
 
 		for region in self.view.sel():
 			word_region = self.view.word(region)
