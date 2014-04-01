@@ -1,4 +1,4 @@
 [
 	/*{ "caption": "-" },*/ // Uncomment for create separator
-	{ "caption": "Toggle Word", "command": "toggle_bool" }
+	{ "caption": "Toggle Word", "command": "toggle_word" }
 ]
