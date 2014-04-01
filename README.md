@@ -1,16 +1,16 @@
 About
 =====
-Plugin for Sublime Text 3 - toggle "boolean" words with supporting user defined dictionary.
+Plugin for Sublime Text 3 - toggle words with supporting user defined arrays.
 
 ```
- true <-> false
-  yes <-> no
-   on <-> off
-    0 <-> 1
- left <-> right
-  top <-> bottom
-   up <-> down
-width <-> height
+ true -> false
+  yes -> no
+   on -> off
+    0 -> 1
+ left -> right
+  top -> bottom
+   up -> down
+width -> height
 ```
 
 and this automatically understand original words and ->
@@ -20,7 +20,6 @@ false <-> true
 False <-> True
 FALSE <-> TRUE
 ```
-
 
 Usage
 -----
@@ -44,21 +43,24 @@ Configure
 ---------
 
 ### Keys
-Put this in you sublime-keymap `{"keys": ["alt+t"], "command": "toggle_bool" }`
+Put this in you sublime-keymap `{"keys": ["alt+t"], "command": "toggle_word" }`
 
 
-### User defined dictionary
+### User defined arrays
 Example file `ToggleWord.sublime-settings`
+
+Notice: you can define lists of words, which will be cycled through in order.
 
 ```
 {
-	// User defined words
-	"toggle_word_dict": {
-		"left":	"right",
-		"top":	"bottom",
-		"up":	"down",
-		"width": "height"
-	}
+    // User defined words
+    "toggle_word_dict": [
+        ["left", "right"],
+        ["top", "bottom"],
+        ["up", "down"],
+        ["width", "height"],
+        ["red","orange","yellow","green","blue","purple"]
+    ]
 }
 ```
 

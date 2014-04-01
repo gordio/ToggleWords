@@ -1,3 +1,3 @@
 [
-	{ "keys": ["alt+ctrl+x"], "command": "toggle_bool" }
+	{ "keys": ["alt+ctrl+x"], "command": "toggle_word" }
 ]
