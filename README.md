@@ -65,3 +65,17 @@ Notice: you can define lists of words, which will be cycled through in order.
 ```
 
 If installed using `Package Control` dictionary file should be located in `<data_path>/Packages`. To get there select `Prefences -> Browse Packages...` in Sublime menu.
+
+
+Warning
+---------
+
+The punctuation by the sides of a word stops toggling from working. For instance, this won't toggle even when cursor is placed right inside the word:
+
+```
+["&laquo;", "&raquo;"],
+["&larr;", "&rarr;"],
+```
+
+However, an easy workaround is to define the central part of entities, for example, laquo and raquo (without & and ;) in ToggleWords dictionary. 
+Thx, [Issue 10](https://github.com/gordio/ToggleWords/issues/10)
