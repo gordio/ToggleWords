@@ -17,84 +17,67 @@ COMPLEX_WORD_PATTERN = "\W"
 
 class ToggleWordCommand(sublime_plugin.TextCommand):
 
-	def preselect_if_next_is_complex_word(self, view, new_word, old_region_begin, word_pattern=COMPLEX_WORD_PATTERN):
-		containsWords = re.search(word_pattern,new_word)
-		if containsWords != None:
-			newWordRegion = Region(old_region_begin, old_region_begin + len(new_word))
-			self.view.sel().add(newWordRegion)
 
-	def toggle_word(self, view, region, words_dict=DEFAULT_WORDS, selected=False):
+	def toggle_word(self, view, region, words_dict=DEFAULT_WORDS, selected=False, cursorPos=-1):
 		editor_word = self.view.substr(region)
-
-		# wordPattern = '\W'
 
 		for word_item in words_dict:
 			words_len = len(word_item)
+			word_item.sort(key=len, reverse=True)
+
 			for i in range(0,words_len):
 				# next item in array, or first item in array when end reached
 				j = (i+1) % words_len
-				hasWordUnderCursor = re.search(word_item[i],editor_word)
 				# tRuE <> FalSe
 				# For original case
 				if editor_word == word_item[i]:
 					self.view.replace(view, region, word_item[j])
-					# select afterwards if new word contains a non alphanumeric symbol (for easy toggling)
-					self.preselect_if_next_is_complex_word(view, word_item[j], region.a)
-					sublime.status_message('1')
+					sublime.status_message("{0}, code 1: word under cursor '{1}' is equal to toggle '{2}', changed to next toggle '{3}'".format(PLUGIN_NAME, editor_word, word_item[i], word_item[j]))
 					return
 				# true <> false
 				# For case when all letters are lowercase
 				if editor_word == word_item[i].lower():
 					self.view.replace(view, region, word_item[j].lower())
-					self.preselect_if_next_is_complex_word(view, word_item[j], region.a)
-					sublime.status_message('2')
+					sublime.status_message("{0}, code 2: word under cursor '{1}' is almost equal to lowercase toggle '{2}', changed to next toggle '{3}' (lowercased)".format(PLUGIN_NAME, editor_word, word_item[i], word_item[j]))
 					return
 				# True <> False
 				# For case when first letter is uppercase
 				if editor_word == word_item[i].capitalize():
 					self.view.replace(view, region, word_item[j].capitalize())
-					self.preselect_if_next_is_complex_word(view, word_item[j], region.a)
-					sublime.status_message('3')
+					sublime.status_message("{0}, code 3: word under cursor '{1}' is almost equal to capitalized toggle '{2}', changed to next toggle '{3}' (capitalized)".format(PLUGIN_NAME, editor_word, word_item[i], word_item[j]))
 					return
 				# TRUE <> FALSE
 				# For case when all letters are uppercase
 				if editor_word == word_item[i].upper():
 					self.view.replace(view, region, word_item[j].upper())
-					self.preselect_if_next_is_complex_word(view, word_item[j], region.a)
-					sublime.status_message('4')
+					sublime.status_message("{0}, code 4: word under cursor '{1}' is almost equal to uppercase toggle '{2}', changed to next toggle '{3}' (uppercased)".format(PLUGIN_NAME, editor_word, word_item[i], word_item[j]))
 					return
 				# if word under cursor CONTAINS one of the user words
 				if word_item[i] in editor_word and selected == False:
-					part_word_region = self.view.find(word_item[i], region.a)
-					self.view.replace(view, part_word_region, word_item[j])
-					self.preselect_if_next_is_complex_word(view, word_item[j], part_word_region.a)
-					sublime.status_message(
-						"5: Word '{0}' found in {1}, replaced region is {2}".format(editor_word, word_item[i],self.view.substr(part_word_region))
-					)
+					part_word_region = self.view.find(word_item[i], region.a, sublime.LITERAL)
+					if part_word_region.a <= cursorPos <= part_word_region.b:
+						self.view.replace(view, part_word_region, word_item[j])
+						sublime.status_message(
+							"{0}, code 5a: Word under cursor '{1}' contains toggle '{2}', changed to next toggle '{3}'".format(PLUGIN_NAME, editor_word, word_item[i], word_item[j])
+						)
+					else:
+						sublime.status_message("{0}, code 5b: too many toggles in the word under cursor '{1}'. Searched from {2} to {3}, cursor at {4}".format(PLUGIN_NAME, editor_word,part_word_region.a,part_word_region.b,cursorPos))
 					return
 				# if user word consists of several words and cursor is within one of them
-				# if word_item[i] in editor_word and selected == False:
-				cursorRegion = self.view.sel()[0]
 				lineRegion = self.view.line(region)
 				userWordRegion = self.view.find(word_item[i], lineRegion.a, sublime.LITERAL)
-				if userWordRegion.a != -1:
-					sublime.status_message(
-						"6: Word '{0}' found from pos {1} to {2} on line {3}, cursor is at {4}".format(word_item[i], userWordRegion.a,userWordRegion.b,lineRegion.a,region.a)
-					)
-				if userWordRegion.a < cursorRegion.a < userWordRegion.b and selected == False:
+				if userWordRegion.a <= cursorPos <= userWordRegion.b and selected == False:
 					self.view.replace(view, userWordRegion, word_item[j])
-					# self.preselect_if_next_is_complex_word(view, word_item[j], part_word_region.a)
+					sublime.status_message(
+						"{0}, code 6: Word '{1}' found from pos {2} to {3} on line beginning from pos {4}, cursor is at pos {5}. Toggled to '{6}'".format(PLUGIN_NAME, word_item[i], userWordRegion.a,userWordRegion.b,lineRegion.a,region.a, word_item[j])
+					)
 					return
-				# else:
-				# sublime.status_message(
-				# 	"{0}: Can't find toggles for '{1}'".format(PLUGIN_NAME, editor_word)
-				# )
 
 
 		# Word not found? Show message
-		# sublime.status_message(
-		# 	"{0}: Can't find toggles for '{1}'".format(PLUGIN_NAME, editor_word)
-		# )
+		sublime.status_message(
+			"{0}: Can't find toggles for '{1}'".format(PLUGIN_NAME, editor_word)
+		)
 
 	def run(self, view):
 
@@ -115,7 +98,9 @@ class ToggleWordCommand(sublime_plugin.TextCommand):
 		for region in self.view.sel():
 			if region.a != region.b:
 				textRegion = region
+				cursorPos = -1
 				selected = True
 			else:
 				textRegion = self.view.word(region)
-			self.toggle_word(view, textRegion, words_dict, selected)
+				cursorPos = region.a
+			self.toggle_word(view, textRegion, words_dict, selected, cursorPos)
