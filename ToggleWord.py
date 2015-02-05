@@ -60,5 +60,8 @@ class ToggleWordCommand(sublime_plugin.TextCommand):
 			words_dict.append(item)
 
 		for region in self.view.sel():
-			word_region = self.view.word(region)
-			self.toggle_word(view, word_region, words_dict)
+			if region.a != region.b:
+				text = region
+			else:
+				text = self.view.word(region)
+			self.toggle_word(view, text, words_dict)
