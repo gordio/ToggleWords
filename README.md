@@ -1,6 +1,6 @@
-About
-=====
-Plugin for Sublime Text 3 - toggle words with supporting user defined arrays.
+#About
+
+Plugin for Sublime Text 3 - toggle words with support for user defined arrays.
 
 ```
  true -> false
@@ -21,14 +21,14 @@ False <-> True
 FALSE <-> TRUE
 ```
 
-Usage
------
-Set cursor on word or select word and press <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd> or <kbd>WinKey</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd> or <kbd>Super</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd>
+#Usage
+
+Set cursor on word or select word and press <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd> (OS X), <kbd>WinKey</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd> (Windows) or <kbd>Super</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd> (Linux).
 
 
-Installation
-------------
-0. Install Package Controll
+#Installation
+
+0. Install Package Control
 1. <kbd>Shift</kbd>+<kbd>Control</kbd>+<kbd>P</kbd> type `Toggle` find Toggle Words end press <kbd>Enter</kbd>
 2. Have fun!
 
@@ -39,17 +39,18 @@ or
 3. Have fun!
 
 
-Configure
----------
+#Configure
 
-### Keys
-Put this in you sublime-keymap `{"keys": ["alt+t"], "command": "toggle_word" }`
+## Keys
+
+You may redefine the key bindings in your sublime-keymap with commnad `toggle_word`
 
 
-### User defined arrays
-Example file `ToggleWord.sublime-settings`
+## User defined arrays
 
-Notice: you can define lists of words, which will be cycled through in order.
+You can define lists of words, which will be cycled through in order.
+
+Example file `ToggleWord.sublime-settings`:
 
 ```
 {
@@ -64,18 +65,9 @@ Notice: you can define lists of words, which will be cycled through in order.
 }
 ```
 
-If installed using `Package Control` dictionary file should be located in `<data_path>/Packages`. To get there select `Prefences -> Browse Packages...` in Sublime menu.
+If installed using `Package Control` dictionary file should be located in `<data_path>/Packages`. To get there select `Preferences -> Browse Packages...` in Sublime menu. Create one if it does not exist.
 
 
-Warning
----------
+#Warning
 
-The punctuation by the sides of a word stops toggling from working. For instance, this won't toggle even when cursor is placed right inside the word:
-
-```
-["&laquo;", "&raquo;"],
-["&larr;", "&rarr;"],
-```
-
-However, an easy workaround is to define the central part of entities, for example, laquo and raquo (without & and ;) in ToggleWords dictionary. 
-Thx, [Issue 10](https://github.com/gordio/ToggleWords/issues/10)
+Only the first definition inside a word containing several identical definitions will be toggled (for now). For example, it's not possible to toggle second `&rarr;` inside a string such as `Home&rarr;News&rarr;GopPost`. In this case you may want to select manually the definition to be toggled.
