@@ -35,7 +35,7 @@ Set cursor on word or select word and press <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>x
 or
 
 1. Open you Sublime Text 3 Packages directory
-2. Run `git clone git://github.com/gordio/ToggleBool`
+2. Run `git clone git://github.com/gordio/ToggleWords`
 3. Have fun!
 
 
@@ -43,14 +43,14 @@ or
 
 ## Keys
 
-You may redefine the key bindings in your sublime-keymap with commnad `toggle_word`
+You may redefine the key bindings in your sublime-keymap with command `toggle_word`.
 
 
 ## User defined arrays
 
 You can define lists of words, which will be cycled through in order.
 
-Example file `ToggleWord.sublime-settings`:
+Example file `ToggleWords.sublime-settings`:
 
 ```
 {

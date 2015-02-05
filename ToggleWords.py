@@ -3,7 +3,7 @@ import re
 from sublime import Region
 import sublime_plugin
 
-PLUGIN_NAME = "ToggleWord"
+PLUGIN_NAME = "ToggleWords"
 SETTINGS_FILE = PLUGIN_NAME + ".sublime-settings"
 
 
