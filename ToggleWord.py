@@ -103,11 +103,14 @@ class ToggleWordCommand(sublime_plugin.TextCommand):
 		# can't figure out how to do that without breaking the loading of plugin
 		user_dict = sublime.Settings.get(sublime.load_settings(SETTINGS_FILE), 'toggle_word_dict', {})
 
-		words_dict = DEFAULT_WORDS
 		selected = False
+		words_dict = {}
 
-		for item in user_dict:
-			words_dict.append(item)
+		if bool(user_dict) == False: #if user dic is empty
+			for item in DEFAULT_WORDS:
+				words_dict.append(item)
+		else:
+			words_dict = user_dict
 
 		for region in self.view.sel():
 			if region.a != region.b:
