@@ -6,19 +6,10 @@ import sublime_plugin
 PLUGIN_NAME = "ToggleWord"
 SETTINGS_FILE = PLUGIN_NAME + ".sublime-settings"
 
-DEFAULT_WORDS = [
-	["true", "false"],
-	["yes", "no"],
-	["on", "off"],
-	["0", "1"]
-]
-
-COMPLEX_WORD_PATTERN = "\W"
 
 class ToggleWordCommand(sublime_plugin.TextCommand):
 
-
-	def toggle_word(self, view, region, words_dict=DEFAULT_WORDS, selected=False, cursorPos=-1):
+	def toggle_word(self, view, region, words_dict, selected=False, cursorPos=-1):
 		editor_word = self.view.substr(region)
 
 		for word_item in words_dict:
@@ -63,7 +54,7 @@ class ToggleWordCommand(sublime_plugin.TextCommand):
 					else:
 						sublime.status_message("{0}, code 5b: too many toggles in the word under cursor '{1}'. Searched from {2} to {3}, cursor at {4}".format(PLUGIN_NAME, editor_word,part_word_region.a,part_word_region.b,cursorPos))
 					return
-				# if user word consists of several words and cursor is within one of them
+				# if user word spans across several words (or includes non word symbols) and cursor is within one of them
 				lineRegion = self.view.line(region)
 				userWordRegion = self.view.find(word_item[i], lineRegion.a, sublime.LITERAL)
 				if userWordRegion.a <= cursorPos <= userWordRegion.b and selected == False:
@@ -84,16 +75,12 @@ class ToggleWordCommand(sublime_plugin.TextCommand):
 		# Would be nice to only run config when loading the editor,
 		# not on each time the main function is called, but...
 		# can't figure out how to do that without breaking the loading of plugin
-		user_dict = sublime.Settings.get(sublime.load_settings(SETTINGS_FILE), 'toggle_word_dict', {})
+		words_dict = sublime.Settings.get(sublime.load_settings(SETTINGS_FILE), 'toggle_word_dict', {})
+
+		if bool(words_dict) == False: #if user dic is empty
+			return
 
 		selected = False
-		words_dict = {}
-
-		if bool(user_dict) == False: #if user dic is empty
-			for item in DEFAULT_WORDS:
-				words_dict.append(item)
-		else:
-			words_dict = user_dict
 
 		for region in self.view.sel():
 			if region.a != region.b:

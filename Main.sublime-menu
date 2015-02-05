@@ -15,7 +15,7 @@
               {
                 "caption": "Settings – Default",
                 "args": {
-                  "file": "${packages}/Toggle words/ToggleWord.sublime-settings"
+                  "file": "${packages}/ToggleWord/ToggleWord.sublime-settings"
                 },
                 "command": "open_file"
               },
