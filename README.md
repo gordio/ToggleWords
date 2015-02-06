@@ -29,7 +29,7 @@ Set cursor on word or select word and press <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>x
 #Installation
 
 0. Install Package Control
-1. <kbd>Shift</kbd>+<kbd>Control</kbd>+<kbd>P</kbd> type `Toggle` find Toggle Words end press <kbd>Enter</kbd>
+1. Open ST command panel (<kbd>Shift</kbd>+<kbd>Control</kbd>+<kbd>P</kbd>), choose `Package Control — Install Package`, type `Toggle`, find Toggle Words end press <kbd>Enter</kbd>
 2. Have fun!
 
 or
@@ -66,8 +66,3 @@ Example file `ToggleWords.sublime-settings`:
 ```
 
 If installed using `Package Control` dictionary file should be located in `<data_path>/Packages`. To get there select `Preferences -> Browse Packages...` in Sublime menu. Create one if it does not exist.
-
-
-#Warning
-
-Only the first definition inside a word containing several identical definitions will be toggled (for now). For example, it's not possible to toggle second `&rarr;` inside a string such as `Home&rarr;News&rarr;GopPost`. In this case you may want to select manually the definition to be toggled.
