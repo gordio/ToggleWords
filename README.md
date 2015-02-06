@@ -57,10 +57,14 @@ Example file `ToggleWords.sublime-settings`:
     // User defined words
     "toggle_word_dict": [
         ["left", "right"],
-        ["top", "bottom"],
         ["up", "down"],
+        ["top", "bottom"],
         ["width", "height"],
-        ["red","orange","yellow","green","blue","purple"]
+        ["red","orange","yellow","green","blue","purple"],
+        ["true", "false"],
+        ["yes", "no"],
+        ["on", "off"],
+        ["0", "1"]
     ]
 }
 ```
