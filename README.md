@@ -29,7 +29,7 @@ Set cursor on word or select word and press <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>x
 #Installation
 
 0. Install Package Control
-1. Open ST command panel (<kbd>Shift</kbd>+<kbd>Control</kbd>+<kbd>P</kbd>), choose `Package Control — Install Package`, type `Toggle`, find Toggle Words end press <kbd>Enter</kbd>
+1. Open ST command panel (<kbd>Shift</kbd>+<kbd>Control</kbd>+<kbd>P</kbd>), choose `Package Control — Install Package`, type `Toggle`, find Toggle Words and press <kbd>Enter</kbd>
 2. Have fun!
 
 or
