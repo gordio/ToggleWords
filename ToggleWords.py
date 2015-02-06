@@ -60,7 +60,7 @@ class ToggleWordCommand(sublime_plugin.TextCommand):
 		# Would be nice to only run config when loading the editor,
 		# not on each time the main function is called, but...
 		# can't figure out how to do that without breaking the loading of plugin
-		words_dict = sublime.Settings.get(sublime.load_settings(SETTINGS_FILE), 'toggle_word_dict', {})
+		words_dict = sublime.Settings.get(sublime.load_settings(SETTINGS_FILE), 'toggle_words_dict', {})
 
 		if bool(words_dict) == False: #if user dic is empty or does not exist
 			return

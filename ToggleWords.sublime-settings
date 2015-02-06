@@ -1,7 +1,7 @@
 {
     // User defined words
     // Automatic understand lEFt(original)|left|Left|LEFT
-    "toggle_word_dict": [
+    "toggle_words_dict": [
         ["left", "right"],
         ["up", "down"],
         ["top", "bottom"],
