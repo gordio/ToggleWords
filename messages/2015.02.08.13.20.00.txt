@@ -1,0 +1,14 @@
+#Toggle Words v2015.02.08.13.20.00 notes
+
+1. Congratulations, you've been updated to the latest version of Toggle Words!
+2. This version uses the same universal form of the plugin's name everywhere - `toggle_words`/`ToggleWords` instead of what sometimes was `toggle_word` or `ToggleWord`. That's why:
+	1.  The name of the user settings file changed to `ToggleWords.sublime-settings` (from `ToggleWord.sublime-settings`) so **be sure to update your user settings filename** if you have one (located at `User/ToggleWords.sublime-settings`).
+	2. The name of the user dictionary itself has changed too (**in `ToggleWords.sublime-settings` change `toggle_word_dict` to `toggle_words_dict`**). Please update your user settings file if you got it.
+3. This version has removed the words hardcoded in the plugin file and moved them to the default settings file. Also settings in default settings file do not count from now on if you have your own settings and therefore you may need to add these words to your user settings file. Here they are, for the sake of easy copying:
+
+```
+["true", "false"],
+["yes", "no"],
+["on", "off"],
+["0", "1"]
+```
