@@ -15,14 +15,14 @@
               {
                 "caption": "Settings – Default",
                 "args": {
-                  "file": "${packages}/Toggle words/ToggleWord.sublime-settings"
+                  "file": "${packages}/ToggleWords/ToggleWords.sublime-settings"
                 },
                 "command": "open_file"
               },
               {
                 "caption": "Settings – User",
                 "args": {
-                  "file": "${packages}/User/ToggleWord.sublime-settings"
+                  "file": "${packages}/User/ToggleWords.sublime-settings"
                 },
                 "command": "open_file"
               },

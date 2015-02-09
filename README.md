@@ -1,6 +1,6 @@
-About
-=====
-Plugin for Sublime Text 3 - toggle words with supporting user defined arrays.
+#About
+
+Plugin for Sublime Text 3 - toggle words with support for user defined arrays.
 
 ```
  true -> false
@@ -21,61 +21,52 @@ False <-> True
 FALSE <-> TRUE
 ```
 
-Usage
------
-Set cursor on word or select word and press <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd> or <kbd>WinKey</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd> or <kbd>Super</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd>
+#Usage
+
+Set cursor on word or select word and press <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd> (OS X), <kbd>WinKey</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd> (Windows) or <kbd>Super</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd> (Linux).
 
 
-Installation
-------------
-0. Install Package Controll
-1. <kbd>Shift</kbd>+<kbd>Control</kbd>+<kbd>P</kbd> type `Toggle` find Toggle Words end press <kbd>Enter</kbd>
+#Installation
+
+0. Install Package Control
+1. Open ST command panel (<kbd>Shift</kbd>+<kbd>Control</kbd>+<kbd>P</kbd>), choose `Package Control — Install Package`, type `Toggle`, find Toggle Words and press <kbd>Enter</kbd>
 2. Have fun!
 
 or
 
 1. Open you Sublime Text 3 Packages directory
-2. Run `git clone git://github.com/gordio/ToggleBool`
+2. Run `git clone git://github.com/gordio/ToggleWords`
 3. Have fun!
 
 
-Configure
----------
+#Configure
 
-### Keys
-Put this in you sublime-keymap `{"keys": ["alt+t"], "command": "toggle_word" }`
+## Keys
+
+You may redefine the key bindings in your sublime-keymap with command `toggle_word`.
 
 
-### User defined arrays
-Example file `ToggleWord.sublime-settings`
+## User defined arrays
 
-Notice: you can define lists of words, which will be cycled through in order.
+You can define lists of words, which will be cycled through in order.
+
+Example file `ToggleWords.sublime-settings`:
 
 ```
 {
     // User defined words
     "toggle_word_dict": [
         ["left", "right"],
-        ["top", "bottom"],
         ["up", "down"],
+        ["top", "bottom"],
         ["width", "height"],
-        ["red","orange","yellow","green","blue","purple"]
+        ["red","orange","yellow","green","blue","purple"],
+        ["true", "false"],
+        ["yes", "no"],
+        ["on", "off"],
+        ["0", "1"]
     ]
 }
 ```
 
-If installed using `Package Control` dictionary file should be located in `<data_path>/Packages`. To get there select `Prefences -> Browse Packages...` in Sublime menu.
-
-
-Warning
----------
-
-The punctuation by the sides of a word stops toggling from working. For instance, this won't toggle even when cursor is placed right inside the word:
-
-```
-["&laquo;", "&raquo;"],
-["&larr;", "&rarr;"],
-```
-
-However, an easy workaround is to define the central part of entities, for example, laquo and raquo (without & and ;) in ToggleWords dictionary. 
-Thx, [Issue 10](https://github.com/gordio/ToggleWords/issues/10)
+If installed using `Package Control` dictionary file should be located in `<data_path>/Packages`. To get there select `Preferences -> Browse Packages...` in Sublime menu. Create one if it does not exist.
