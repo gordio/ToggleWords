@@ -10,7 +10,7 @@
         "id": "package-settings",
         "children": [
           {
-            "caption": "Toggle Words",
+            "caption": "ToggleWords",
             "children": [
               {
                 "caption": "Settings – Default",
