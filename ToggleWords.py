@@ -14,19 +14,18 @@ class ToggleWordCommand(sublime_plugin.TextCommand):
 		editor_word = self.view.substr(region)
 		toggle_groups = words_dict
 
-
 		for toggle_group in toggle_groups:
 			toggle_group_word_count = len(toggle_group)
-			toggle_group.sort(key=len, reverse=True)
+			# toggle_group.sort(key=len, reverse=True)
 
-			for cur_word in range(0,toggle_group_word_count):
-				
-				next_word = (cur_word+1) % toggle_group_word_count
+			for cur_word in range(0, toggle_group_word_count):
+				next_word = (cur_word + 1) % toggle_group_word_count
 
 				if cursorPos != -1: #selected == false
 					lineRegion = self.view.line(region)
 					line = self.view.substr(lineRegion)
 					lineBegin = lineRegion.a
+
 					for line_finding in re.finditer(re.escape(toggle_group[cur_word]), line, flags=re.IGNORECASE):
 						lf_a = line_finding.span()[0]
 						lf_b = line_finding.span()[1]
@@ -34,7 +33,6 @@ class ToggleWordCommand(sublime_plugin.TextCommand):
 						if finding_region.contains(cursorPos):
 							editor_word = self.view.substr(finding_region)
 							region = finding_region
-
 
 				if editor_word == toggle_group[cur_word]:
 					self.view.replace(view, region, toggle_group[next_word])
@@ -48,7 +46,6 @@ class ToggleWordCommand(sublime_plugin.TextCommand):
 				if editor_word == toggle_group[cur_word].upper():
 					self.view.replace(view, region, toggle_group[next_word].upper())
 					return
-
 
 		# Word not found? Show message
 		sublime.status_message(
