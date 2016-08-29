@@ -23,7 +23,7 @@ FALSE <-> TRUE
 
 #Usage
 
-Set cursor on word or select word and press <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd> (OS X), <kbd>WinKey</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd> (Windows) or <kbd>Super</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd> (Linux).
+Set cursor on word or select word and press <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd> (OS X), <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd> (Windows) or <kbd>Super</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd> (Linux).
 
 
 #Installation
