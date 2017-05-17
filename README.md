@@ -1,4 +1,4 @@
-#About
+# About
 
 Plugin for Sublime Text 3 - toggle words with support for user defined arrays.
 
@@ -21,12 +21,15 @@ False <-> True
 FALSE <-> TRUE
 ```
 
-#Usage
+# Usage
 
-Set cursor on word or select word and press <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd> (OS X), <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd> (Windows) or <kbd>Super</kbd>+<kbd>Alt</kbd>+<kbd>x</kbd> (Linux).
+Set cursor on word or select word and press:
+* <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>X</kbd> (OS X)
+* <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>X</kbd> (Windows)
+* <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>X</kbd> (Linux)
 
 
-#Installation
+# Installation
 
 0. Install Package Control
 1. Open ST command panel (<kbd>Shift</kbd>+<kbd>Control</kbd>+<kbd>P</kbd>), choose `Package Control — Install Package`, type `Toggle`, find Toggle Words and press <kbd>Enter</kbd>
@@ -39,7 +42,7 @@ or
 3. Have fun!
 
 
-#Configure
+# Configure
 
 ## Keys
 
