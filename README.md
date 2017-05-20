@@ -24,9 +24,9 @@ FALSE <-> TRUE
 # Usage
 
 Set cursor on word or select word and press:
-* <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>X</kbd> (OS X)
-* <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>X</kbd> (Windows)
-* <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>X</kbd> (Linux)
+* macOS - <kbd>Cmd</kbd>+<kbd>Alt</kbd>+<kbd>X</kbd> (OS X)
+* Windows - <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>X</kbd> (Windows)
+* Linux - <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>X</kbd> (Linux)
 
 
 # Installation
