@@ -8,8 +8,6 @@ SETTINGS_FILE = PLUGIN_NAME + ".sublime-settings"
 
 
 class ToggleWordCommand(sublime_plugin.TextCommand):
-
-
     def toggle_word(self, view, region, words_dict, cursorPos=-1):
         editor_word = self.view.substr(region)
         toggle_groups = words_dict
@@ -21,12 +19,14 @@ class ToggleWordCommand(sublime_plugin.TextCommand):
             for cur_word in range(0, toggle_group_word_count):
                 next_word = (cur_word + 1) % toggle_group_word_count
 
-                if cursorPos != -1: #selected == false
+                if cursorPos != -1:  # selected == false
                     lineRegion = self.view.line(region)
                     line = self.view.substr(lineRegion)
                     lineBegin = lineRegion.a
 
-                    for line_finding in re.finditer(re.escape(toggle_group[cur_word]), line, flags=re.IGNORECASE):
+                    for line_finding in re.finditer(
+                        re.escape(toggle_group[cur_word]), line, flags=re.IGNORECASE
+                    ):
                         lf_a = line_finding.span()[0]
                         lf_b = line_finding.span()[1]
                         finding_region = Region(lineBegin + lf_a, lineBegin + lf_b)
@@ -48,18 +48,18 @@ class ToggleWordCommand(sublime_plugin.TextCommand):
                     return
 
         # Word not found? Show message
-        sublime.status_message(
-            "{0}: Can't find toggles for '{1}'".format(PLUGIN_NAME, editor_word)
-        )
+        sublime.status_message("{0}: Can't find toggles for '{1}'".format(PLUGIN_NAME, editor_word))
 
     def run(self, view):
 
         # Would be nice to only run config when loading the editor,
         # not on each time the main function is called, but...
         # can't figure out how to do that without breaking the loading of plugin
-        words_dict = sublime.Settings.get(sublime.load_settings(SETTINGS_FILE), 'toggle_words_dict', {})
+        words_dict = sublime.Settings.get(
+            sublime.load_settings(SETTINGS_FILE), "toggle_words_dict", {}
+        )
 
-        if bool(words_dict) == False: #if user dic is empty or does not exist
+        if not words_dict:  # if user dic is empty or does not exist
             return
 
         for region in self.view.sel():
