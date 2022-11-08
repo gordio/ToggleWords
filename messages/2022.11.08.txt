@@ -1,0 +1,5 @@
+#Toggle Words v2022.11.08 notes
+
+Package ToggleWords get some improvements:
+ 1. Improve performance
+ 2. Switch to python version 3.8

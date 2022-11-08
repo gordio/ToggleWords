@@ -6,10 +6,12 @@
         ["up", "down"],
         ["top", "bottom"],
         ["width", "height"],
-        ["red","orange","yellow","green","blue","purple"],
         ["true", "false"],
         ["yes", "no"],
         ["on", "off"],
         ["0", "1"]
+    ],
+    "toggle_words_list": [
+        ["red", "orange", "yellow", "green", "blue", "purple"],
     ]
 }

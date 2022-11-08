@@ -13,7 +13,7 @@ Plugin for Sublime Text 3 - toggle words with support for user defined arrays.
 width -> height
 ```
 
-and this automatically understand original words and ->
+and it automatically adapts to words like ->
 
 ```
 false <-> true
