@@ -1,5 +1,6 @@
-#Toggle Words v2022.11.08 notes
+# ToggleWords 0.4.0 (2022.11.08) notes
 
 Package ToggleWords get some improvements:
  1. Improve performance
  2. Switch to python version 3.8
+ 3. Package Control fixes and cleanup
