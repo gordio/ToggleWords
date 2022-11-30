@@ -39,7 +39,7 @@ Set cursor on word or select word and press:
 or
 
 1. Open you Sublime Text 3 Packages directory
-2. Run `git clone git://github.com/gordio/ToggleWords`
+2. Run `git clone git@github.com:gordio/ToggleWords.git`
 3. Have fun!
 
 
